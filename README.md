@@ -4,7 +4,7 @@ Chef Claude is a React application that generates recipe ideas based on ingredie
 
 ## Demo
 
-Live site: https://chef-claude.vercel.app  
+Live site: https://chef-claude-beryl.vercel.app/  
 Deployed with Vercel
 
 ## Features
