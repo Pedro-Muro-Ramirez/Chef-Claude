@@ -1,16 +1,69 @@
-# React + Vite
+# Chef Claude
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chef Claude is a React application that generates recipe ideas based on ingredients entered by the user. The app uses Claude’s API to create recipes dynamically, making it easy to get cooking inspiration from what you already have.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live site: https://chef-claude.vercel.app  
+Deployed with Vercel
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User input for ingredients
+- AI generated recipes using Claude’s API
+- Clean and simple UI
+- Responsive design
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- CSS
+- Claude API
+- GitHub
+- Vercel
+
+## Getting Started
+
+To run this project locally, follow these steps.
+
+### Prerequisites
+
+- Node.js installed
+- A Claude API key
+
+### Installation
+
+1. Clone the repository
+2. Navigate into the project directory
+3. Install dependencies
+4. Create a `.env` file and add your API key
+5. Start the development server
+
+
+## Usage
+
+- Enter a list of ingredients into the input field
+- Submit the form
+- View a generated recipe based on your ingredients
+
+## Project Status
+
+This project is finished.
+
+## What I Learned
+
+- How to work with an external AI API
+- Handling user input and state in React
+- Making async API calls
+- Deploying a React app with Vercel
+
+## Future Improvements
+
+- Add the ability to save favorite recipes
+- Improve error handling for API responses
+- Add loading states and animations
+- Allow users to choose dietary preferences
+
+## License
+
+This project is for educational and portfolio purposes.
