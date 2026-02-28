@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
-import { getRecipeFromChefClaude } from "../ai"
+import { getRecipeFromChefClaude } from "../ai";
 
 export default function Main() {
   //state to hold the list of ingredients
@@ -16,11 +16,11 @@ export default function Main() {
   //effect to scroll to the recipe when it changes
   useEffect(() => {
     if (recipe !== "" && recipeSection.current !== null) {
-      recipeSection.current.scrollIntoView({behavior: "smooth"})
+      recipeSection.current.scrollIntoView({ behavior: "smooth" });
     }
-  },[recipe])
+  }, [recipe]);
 
-  //function to handle adding a new ingredient  
+  //function to handle adding a new ingredient
   function ingredientForm(formData) {
     const NewIngredient = formData.get("ingredient");
     setIngredients((prevIngredients) => [...prevIngredients, NewIngredient]);
@@ -28,10 +28,9 @@ export default function Main() {
 
   //function to get a recipe from Chef Claude
   async function getRecipe() {
-    const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
-    setRecipe(recipeMarkdown)
+    const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+    setRecipe(recipeMarkdown);
   }
-
 
   return (
     <main>
@@ -47,13 +46,16 @@ export default function Main() {
       </form>
 
       {/* render IngredientsList only if there are ingredients */}
-      {ingredients.length > 0 && <IngredientsList 
-      ingredients={ingredients} 
-      getRecipe={getRecipe}
-      ref={recipeSection}/>}
+      {ingredients.length > 0 && (
+        <IngredientsList
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+          ref={recipeSection}
+        />
+      )}
 
       {/* render ClaudeRecipe only if there is a recipe */}
-      { recipe && <ClaudeRecipe recipe={recipe}/>}
+      {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
