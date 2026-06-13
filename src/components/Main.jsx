@@ -10,6 +10,12 @@ export default function Main() {
   //state to hold the generated recipe
   const [recipe, setRecipe] = useState("");
 
+  //state to track while the recipe is being generated
+  const [isLoading, setIsLoading] = useState(false);
+
+  //state to hold an error message if the recipe fails to generate
+  const [error, setError] = useState("");
+
   //ref to the recipe section for scrolling
   const recipeSection = useRef(null);
 
@@ -28,8 +34,16 @@ export default function Main() {
 
   //function to get a recipe from Chef Claude
   async function getRecipe() {
-    const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
-    setRecipe(recipeMarkdown);
+    setIsLoading(true);
+    setError("");
+    try {
+      const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+      setRecipe(recipeMarkdown);
+    } catch {
+      setError("🔥 Something burned in the kitchen — please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -54,8 +68,22 @@ export default function Main() {
         />
       )}
 
-      {/* render ClaudeRecipe only if there is a recipe */}
-      {recipe && <ClaudeRecipe recipe={recipe} />}
+      {/* show a chef-themed message while the recipe is being generated */}
+      {isLoading && (
+        <p className="loading-message" aria-live="polite">
+          👨‍🍳 Chef Claude is firing up the stove and cooking up a recipe...
+        </p>
+      )}
+
+      {/* show a chef-themed error message if the recipe failed to generate */}
+      {!isLoading && error && (
+        <p className="error-message" role="alert">
+          {error}
+        </p>
+      )}
+
+      {/* render ClaudeRecipe only if there is a recipe and we're not loading */}
+      {!isLoading && !error && recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }

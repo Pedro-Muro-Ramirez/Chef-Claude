@@ -127,6 +127,20 @@ ul.ingredients-list > li {
   margin-bottom: 0px;
 }
 
+.loading-message {
+  color: #475467;
+  font-size: 1.125rem;
+  font-style: italic;
+  margin-top: 24px;
+}
+
+.error-message {
+  color: #b42318;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: 24px;
+}
+
 .recipe-instructions {
   margin-top: .3rem;
   font-size: .85rem;
